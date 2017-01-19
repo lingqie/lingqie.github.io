@@ -1,0 +1,35 @@
+.header-top{
+  margin-top: 4em;
+}
+
+.body-style{
+  background-color: #EEEEEE;
+}
+
+.menu-top{
+  margin-top: 4em;
+}
+
+.post-top{
+  margin-top: 4em;
+}
+
+.red-color{
+  background-color: #FFFFFF;
+  /*padding-left: 2em;*/
+  padding-top: 2em;
+  padding-bottom: 2em;
+  text-align: center;
+}
+
+.ul-style{
+  list-style: none;
+}
+
+.footer{
+  background-color:rgb(57, 164, 129);
+}
+
+.text-center{
+  text-align: center;
+}

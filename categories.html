@@ -1,0 +1,28 @@
+---
+layout: default
+permalink: /categories/
+---
+
+
+<ul class="nav nav-tabs-horizontal">
+    {% assign category_list=site.categories %}
+    {% for category in category_list %}
+      <a type="button" class="btn" href="#{{ category | first }}">{{ category|first }}
+      <span class="label">{{category|last|size}}</span>
+      </a>
+    {% endfor %}
+</ul>
+
+{% for category in site.categories %}
+  <div id="{{ category | first }}"><h2>{{ category | first }}</h2>
+    <ul>
+    {% for posts in category %}
+      {% for post in posts %}
+        {%if post.url %}
+         <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+         {%endif%}
+      {% endfor %}
+    {% endfor %}
+    </ul>
+  </div>
+{% endfor %}
