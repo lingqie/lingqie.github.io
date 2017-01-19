@@ -3,26 +3,33 @@ layout: default
 permalink: /categories/
 ---
 
-
+<div class="tag-list">
 <ul class="nav nav-tabs-horizontal">
     {% assign category_list=site.categories %}
     {% for category in category_list %}
-      <a type="button" class="btn" href="#{{ category | first }}">{{ category|first }}
-      <span class="label">{{category|last|size}}</span>
+      <a type="button" class="btn btn-info" href="#{{ category | first }}">{{ category|first }}
+      <span class="badge">{{category|last|size}}</span>
       </a>
     {% endfor %}
 </ul>
+<div>
 
+<div class="article-list">
 {% for category in site.categories %}
-  <div id="{{ category | first }}"><h2>{{ category | first }}</h2>
-    <ul>
+  <div id="{{ category | first }}" >
+    <ul >
+      <li class="list-title">{{ category | first }}</li>
     {% for posts in category %}
       {% for post in posts %}
         {%if post.url %}
-         <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+
+         <li class="list-item">
+           <span class="list-date text-muted" >{{ post.date | date: "%Y-%m-%d" }}</span>
+           <a href="{{ post.url }}">{{ post.title }}</a></li>
          {%endif%}
       {% endfor %}
     {% endfor %}
     </ul>
   </div>
 {% endfor %}
+</div>

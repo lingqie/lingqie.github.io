@@ -1,35 +1,73 @@
-.header-top{
+.list-title {
+    font-size: 20px;
+    height: 30px;
+    line-height: 30px;
+    list-style: none;
+    margin-top: 1em;
+}
+
+.list-item {
+    font-size: 16px;
+    margin-top:1em;
+    margin-left: 2em;
+    line-height: 30px;
+    list-style: none;
+}
+
+.list-item a{
+  color:#264ec4
+}
+
+.list-date{
+  margin-right: 1em;
+
+}
+
+.article-list{
   margin-top: 4em;
 }
 
-.body-style{
-  background-color: #EEEEEE;
+
+.tag-list{
+  margin: 2em;
 }
 
-.menu-top{
-  margin-top: 4em;
+.post{
+  margin: 2em;
 }
 
-.post-top{
-  margin-top: 4em;
+.header-top {
+    margin-top: 4em;
 }
 
-.red-color{
-  background-color: #FFFFFF;
-  /*padding-left: 2em;*/
-  padding-top: 2em;
-  padding-bottom: 2em;
-  text-align: center;
+.body-style {
+    background-color: #EEEEEE;
 }
 
-.ul-style{
-  list-style: none;
+.menu-top {
+    margin-top: 4em;
 }
 
-.footer{
-  background-color:rgb(57, 164, 129);
+.post-top {
+    margin-top: 4em;
 }
 
-.text-center{
-  text-align: center;
+.red-color {
+    background-color: #FFFFFF;
+    /*padding-left: 2em;*/
+    padding-top: 2em;
+    padding-bottom: 2em;
+    text-align: center;
+}
+
+.ul-style {
+    list-style: none;
+}
+
+.footer {
+    background-color: rgb(57, 164, 129);
+}
+
+.text-center {
+    text-align: center;
 }
