@@ -6,11 +6,26 @@ layout: default
 <div class="article-list">
 
     {% for post in paginator.posts %}
-        <li class="blog-item">
+        <!-- <li class="blog-item">
             <span class="list-date text-muted" >{{ post.date | date: "%Y-%m-%d" }}</span>
             <a href="{{ post.url }}">{{ post.title }}</a>
             {{ post.excerpt }}
-        </li>
+        </li> -->
+        <article class="post">
+
+    		  <header>
+    		  <h2><a href="{{ root_url }}{{post.url}}" title="{{ post.title }}" target="_blank">{% if site.titlecase %}{{ post.title | titlecase }}{% else %}{{ post.title }}{% endif %}{% if post.external-url %}&nbsp;&rarr;{% endif %}</a></h2>
+    		  </header>
+          <div class="date">
+      		<span class="list-date text-muted" >{{ post.date | date: "%Y-%m-%d" }}</span>
+      		</div>
+    		<div class="con">
+    		  {{ post.excerpt }}
+    		  <footer class="text-right">
+    			<a rel="nofollow" href="{{ post.url }}" target="_blank" >更多..</a>
+    		  </footer>
+    		</div>
+    	</article>
     {% endfor %}
 
   <ul class="pager">

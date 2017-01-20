@@ -15,9 +15,9 @@
 }
 
 .blog-item {
-    font-size: 16px;
+    font-size: 32px;
     margin-top:1em;
-    line-height: 30px;
+    line-height: 2em;
     list-style: none;
 }
 
@@ -81,6 +81,10 @@
 .foot-text-center {
     text-align: center;
     color:#ffffff;
+}
+
+.text-right {
+    text-align: right;
 }
 
 /*begin nav style*/
