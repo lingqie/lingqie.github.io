@@ -13,21 +13,19 @@ layout: default
           {% else %} 作者:
             <span class="text-muted">{{ site.author }}</span>
           {% endif %}
+          {% if page.categories %}
+          目录为 <a href="{{site.baseurl}}/categories/#{{page.categories|first}}">{{ page.categories|first}}</a>
+          {% endif %}
+
+        {% if page.tags.size>0 %}
+          标签为
+            {% for tag in page.tags %}
+              <a href="{{site.baseurl}}/tags/#{{tag}}">{{ tag }}</a>、
+            {%endfor%}
+          {% endif %}
     </div>
     <div>
 
         {{ content }}
-    </div>
-    <div>
-      {% if page.categories %}
-      目录为 <a href="{{site.baseurl}}/categories/#{{page.categories|first}}">{{ page.categories|first}}</a>
-      {% endif %}
-
-    {% if page.tags.size>0 %}
-      标签为
-        {% for tag in page.tags %}
-          <a href="{{site.baseurl}}/tags/#{{tag}}">{{ tag }}</a>
-        {%endfor%}
-      {% endif %}
     </div>
 </div>

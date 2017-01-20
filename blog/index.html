@@ -1,0 +1,30 @@
+---
+layout: default
+---
+
+{% assign year  = '' %}
+<div class="article-list">
+<ul>
+    {% for post in site.posts %}
+        <li class="list-item">
+            <span class="list-date text-muted" >{{ post.date | date: "%Y-%m-%d" }}</span>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+            {{ post.excerpt }}
+        </li>
+    {% endfor %}
+  </ul>
+  <ul class="pager">
+      {% if paginator.previous_page %}
+      <li class="previous"><a href="{{paginator.previous_page_path}}"><b>&laquo; Prev</b></a></li>
+      {% else %}
+      <li class="previous disabled"><a href="#"><b>&laquo; Prev</b></a></li>
+      {% endif %}
+
+      <li><a rel="nofollow" href="{{ site.baseurl}}{{site.archive_dir}}"><b>Blog Archives</b></a></li>
+      {% if paginator.next_page %}
+      <li class="next"><a href="{{paginator.next_page_path}}"><b>Next &raquo;</b></a></li>
+      {% else %}
+      <li class="next disabled"><a href="#"><b>Next &raquo;</b></a></li>
+      {% endif %}
+  </ul>
+</div>

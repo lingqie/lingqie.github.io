@@ -5,6 +5,10 @@ description: 零切骑士团们的博客
 github_username: lingqie
 github_site_repo: lingqie/lingqie.github.io
 
+archive_dir: /blog/archive/
+paginate: 2			  # Posts per page on the blog index
+paginate_path: "blog/page/:num"
+
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://lingqie.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 
