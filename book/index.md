@@ -1,6 +1,5 @@
 ---
 layout: post
-permalink: /books/
 title: 书单推荐
 ---
 

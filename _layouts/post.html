@@ -2,8 +2,8 @@
 layout: default
 ---
 
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="page-header">
+<div>
+    <div class="page-header">
         <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
         {% if page.date %}
           日期:<span class="list-date text-muted" >{{ page.date | date: "%Y-%m-%d" }}</span>
@@ -13,8 +13,9 @@ layout: default
           {% else %} 作者:
             <span class="text-muted">{{ site.author }}</span>
           {% endif %}
-    </header>
-    <div class="post-content" itemprop="articleBody">
+    </div>
+    <div>
+
         {{ content }}
     </div>
     <div>
@@ -29,4 +30,4 @@ layout: default
         {%endfor%}
       {% endif %}
     </div>
-</article>
+</div>

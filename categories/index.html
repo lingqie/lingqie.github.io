@@ -1,8 +1,6 @@
 ---
 layout: default
-permalink: /categories/
 ---
-
 <div class="tag-list">
 <ul class="nav nav-tabs-horizontal">
     {% assign category_list=site.categories %}
@@ -12,8 +10,7 @@ permalink: /categories/
       </a>
     {% endfor %}
 </ul>
-<div>
-
+</div>
 <div class="article-list">
 {% for category in site.categories %}
   <div id="{{ category | first }}" >
