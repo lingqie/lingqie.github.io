@@ -6,8 +6,8 @@ permalink: /tags/
 <ul class="nav nav-tabs-horizontal">
     {% for tag in site.tags %}
       {% assign tagname={{tag|first}} %}
-      <a type="button" class="btn btn-info" onclick="showPanel({{tagname}})">{{ tag|first }}
-      <span class="label">{{tag|last|size}}</span>
+      <a type="button" class="btn btn-info" href="#{{ tag | first }}">{{ tag|first }}
+      <span class="badge">{{tag|last|size}}</span>
       </a>
     {% endfor %}
 </ul>
