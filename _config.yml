@@ -6,7 +6,7 @@ github_username: lingqie
 github_site_repo: lingqie/lingqie.github.io
 
 archive_dir: /blog/archive/
-paginate: 2			  # Posts per page on the blog index
+paginate: 5		  # Posts per page on the blog index
 paginate_path: "blog/page/:num"
 
 baseurl: "" # the subpath of your site, e.g. /blog
