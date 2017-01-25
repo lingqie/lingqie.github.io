@@ -13,8 +13,9 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://lingqie.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
-markdown: kramdown
-syntax_highlighter: rouge
+# markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
 # theme: minima
 gems:
   - jekyll-feed
