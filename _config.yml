@@ -15,7 +15,7 @@ url: "https://lingqie.github.io/" # the base hostname & protocol for your site, 
 # Build settings
 markdown: kramdown
 syntax_highlighter: rouge
-theme: minima
+# theme: minima
 gems:
   - jekyll-feed
   - jekyll-paginate
