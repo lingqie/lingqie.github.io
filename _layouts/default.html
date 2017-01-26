@@ -8,7 +8,7 @@
             {% include header.html %}
         </div>
         <div class="row post-top col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
+            <div class="panel panel-default article">
                 <div class="panel-body">
                     {{ content }}
                 </div>
@@ -22,5 +22,11 @@
 <script>
 $(function(){
     $("img").addClass("img-responsive center-block");
+    $(".article").mouseover(function(){
+			$(this).css({"box-shadow":'5px 5px 20px #6C6969'});
+		});
+		$(".article").mouseout(function(){
+			$(this).css({'box-shadow':"5px 5px 20px #A7A3A3"});
+		});
 })
 </script>
