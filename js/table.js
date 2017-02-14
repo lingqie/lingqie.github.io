@@ -1,3 +1,3 @@
 $(function(){
-  $("table").addClass('table');
+  $("table").addClass('table table-bordered');
 });
