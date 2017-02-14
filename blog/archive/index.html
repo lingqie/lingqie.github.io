@@ -12,7 +12,6 @@ layout: default
             {% assign year = date %}
             <li class="list-title"> {{year}} </li>
         {% endif%}
-
         <li class="list-item">
             <span class="list-date text-muted" >{{ post.date | date: "%Y-%m-%d" }}</span>
             <a href="{{ post.url }}">{{ post.title }}</a>
