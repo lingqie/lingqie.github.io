@@ -28,7 +28,7 @@ td, th {
   display: block;
   width: auto;
   overflow: hidden;
-  margin: 0,5em,0;
+  margin: 10px 5em 0;
 }
 
 .PageNavigation a {
