@@ -28,7 +28,7 @@ td, th {
   display: block;
   width: auto;
   overflow: hidden;
-  margin: 10px 5em 0;
+  margin: 10px 3em 0;
 }
 
 .PageNavigation a {
@@ -49,8 +49,9 @@ td, th {
 }
 
 .post-content{
-  margin-left: 5em;
-  margin-right: 5em;
+  margin-left: 3em;
+  margin-right: 3em;
+  margin-bottom: 3em;
 }
 
 thead {
