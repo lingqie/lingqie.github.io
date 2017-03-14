@@ -16,7 +16,7 @@
   // UTC時刻（ミリ秒）
   var utc = localTime + localOffset;
   // 考慮したいタイムゾーンの差分（時間）ex.バンクーバは-8時間
-  var offset = -8.0;
+  var offset = -9.0;
   // これで目的のミリ秒がでるので
   var result = utc - (3600000 * offset);
   d = new Date(result);
