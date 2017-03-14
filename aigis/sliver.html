@@ -1,36 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{{ site.baseurl }}/css/bootstrap.min.css" />
+  <script type="text/javascript" src="{{ site.baseurl }}/js/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
   <title>Document</title>
 </head>
 <body>
 <Script>
-  var d = new Date();
-  // クライアントPCシステム時刻
-  var localTime = d.getTime();
-  // localTimeのタイムゾーン差分（ミリ秒）
-  var localOffset = d.getTimezoneOffset() * 60000;
-  // UTC時刻（ミリ秒）
-  var utc = localTime + localOffset;
-  // 考慮したいタイムゾーンの差分（時間）ex.バンクーバは-8時間
-  var offset = - 9.0;
-  // これで目的のミリ秒がでるので
-  var result = utc - (3600000 * offset);
-  d = new Date(result);
-  // あとは煮るなり焼くなり
-  document.writeln(d.toLocaleString() + "<br>");
-
-  var yyyy = (d.getYear() < 2000) ? d.getYear() + 1900 : d.getYear();
-  var mm = d.getMonth() + 1;
-  var dd = d.getDate();
-  var hh = d.getHours();
-  var ii = d.getMinutes();
-  var ss = d.getSeconds();
-
-  document.writeln(yyyy + "/" + mm + "/" + dd + " " + hh + ":" + ii + ":" + ss + "<br>");
+  $(function(){
+      formatJpTime(getJpTime());
+  });
+  function getJpTime(){
+    var d = new Date();
+    var localTime = d.getTime();
+    var localOffset = d.getTimezoneOffset() * 60000;
+    var utc = localTime + localOffset;
+    var offset = - 9.0;
+    var result = utc - (3600000 * offset);
+    d = new Date(result);
+    return d;
+  }
+  function formatJpTime(date d){
+    var yyyy = (d.getYear() < 2000) ? d.getYear() + 1900 : d.getYear();
+    var mm = d.getMonth() + 1;
+    var dd = d.getDate();
+    var hh = d.getHours();
+    var ii = d.getMinutes();
+    var ss = d.getSeconds();
+    document.writeln("日本时间现在为："+yyyy + "/" + mm + "/" + dd + " " + hh + ":" + ii + ":" + ss + "<br>");
+  }
 </script>
 
 </body>
