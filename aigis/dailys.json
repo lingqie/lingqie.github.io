@@ -1,0 +1,74 @@
+[{
+    "no": 0,
+    "dailyJPName": "魔女を救え！",
+    "missions": [{
+        "tiLi": 20,
+        "meiLi": 2,
+        "missionJPName": "魔女の襲撃",
+        "dropItems": [{
+            "id": "301",
+            "name": "傭兵クレイブ",
+            "cclass": "士兵",
+            "judgeTime": 1
+        }, {
+            "id": "304",
+            "name": "ドワーフ戦士グスタフ",
+            "cclass": "士兵",
+            "judgeTime": 1
+        }, {
+            "id": "303",
+            "name": "妖精郷の戦士ロザリー",
+            "cclass": "士兵",
+            "judgeTime": 1
+        }]
+    }, {
+        "tiLi": 25,
+        "meiLi": 2,
+        "missionJPName": "魔女の逆襲\t",
+        "dropItems": [{
+            "id": "301",
+            "name": "傭兵クレイブ",
+            "cclass": "士兵",
+            "judgeTime": 1
+        }]
+    }]
+}, {
+    "no": 1,
+    "dailyJPName": "魔女の娘",
+    "missions": [{
+        "tiLi": 20,
+        "meiLi": 2,
+        "missionJPName": "魔女の復活",
+        "dropItems": [{
+            "id": "301",
+            "name": "傭兵クレイブ",
+            "cclass": "士兵",
+            "judgeTime": 1
+        }, {
+            "id": "304",
+            "name": "ドワーフ戦士グスタフ",
+            "cclass": "士兵",
+            "judgeTime": 1
+        }, {
+            "id": "303",
+            "name": "妖精郷の戦士ロザリー",
+            "cclass": "士兵",
+            "judgeTime": 1
+        }]
+    }, {
+        "tiLi": 25,
+        "meiLi": 2,
+        "missionJPName": "魔女の夜\t",
+        "dropItems": [{
+            "id": "301",
+            "name": "傭兵クレイブ",
+            "cclass": "士兵",
+            "judgeTime": 1
+        }, {
+            "id": "306",
+            "name": "金色の盾ベルナール",
+            "cclass": "盾",
+            "judgeTime": 1
+        }]
+    }]
+}]
