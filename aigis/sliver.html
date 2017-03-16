@@ -64,7 +64,7 @@
         <div id="collapseTwo" class="display-none panel-collapse" role="tabpanel" aria-labelledby="headingOne">
           <div class="panel panel-default article">
               <div class="panel-body">
-                <div id="allDaily2" class="post-content"></div>
+                <div id="allDaily2" class="row post-content"></div>
               </div>
           </div>
         </div>
@@ -78,8 +78,8 @@
         var dailys = json;
         var html='';
         $.each(dailys, function(i, item){
-          html+='<div id=daily'+item.no+'><table class="table table-bordered"><thead><tr><th>'+item.dailyJPName+'</th><th>stage</th><th>掉落1</th><th>掉落2</th><th>掉落3</th><th>掉落4</th></tr><thead>';
-          html+='<tbody><tr><td rowspan="'+item.size+'"><img src="image/daily/'+item.no+'.png" border="0" onerror="this.src=\'image/default.png\'"></td>'
+          html+='<div class="row" id=daily'+item.no+'><table class="table table-bordered"><thead><tr><th>'+item.dailyJPName+'</th><th>stage</th><th>掉落1</th><th>掉落2</th><th>掉落3</th><th>掉落4</th></tr><thead>';
+          html+='<tbody><tr><td rowspan="'+item.size+'"><img class="img-responsive center-block" src="image/daily/'+item.no+'.png" border="0" onerror="this.src=\'image/default.png\'"></td>'
           $.each(item.missions,function(j,val){
             if(j!=0){
               html+='<tr>'
@@ -87,7 +87,7 @@
           html+='<td>'+val.missionJPName+'</td>';
             var count=0;
             $.each(val.dropItems,function(k,item){
-                html+='<td style="text-align:center"><img src="image/sliver/'+item.id+'.png" border="0" onerror="this.src=\'image/default.png\'"><br>'+item.name+'</td>';
+                html+='<td style="text-align:center"><img class="img-responsive center-block" src="image/sliver/'+item.id+'.png" border="0" onerror="this.src=\'image/default.png\'"><br>'+item.name+'</td>';
                 count++;
             });
             while(count<4){
