@@ -7,12 +7,78 @@
   <link rel="stylesheet" href="/css/bootstrap.min.css" />
   <script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-
-  <title>Document</title>
+  <link rel="stylesheet" href="/css/blog.css" />
+  <link rel="stylesheet" href="/css/rouge_style.css">
+  <script type="text/javascript" src="/js/table.js"></script>
+  <title>每日复刻掉落速查</title>
 </head>
 <body>
-<div id="allDaily">
-</div>
+  <div class="container">
+      <div class="row">
+        <div class="navbar navbar-custom navbar-fixed-top">
+              <div class="container">
+                <div class="navbar-header">
+                  <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand hidden-sm" href="{{site.baseurl}}/index.html">零切骑士团</a>
+                </div>
+                <div class="navbar-collapse collapse" role="navigation">
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{site.baseurl}}/index.html">首页</a></li>
+                    <li><a href="{{site.baseurl}}/blog/">博客</a></li>
+                    <li><a href="{{site.baseurl}}/categories/">目录</a></li>
+                    <li><a href="{{site.baseurl}}/tags/">标签</a></li>
+                    <li><a href="{{site.baseurl}}/books/">书单</a></li>
+                      <li><a href="{{site.baseurl}}/api/">api速查</a></li>
+                    <li><a href="{{site.baseurl}}/pdf/">pdf</a></li>
+                    <li><a href="{{site.baseurl}}/about/">关于</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+      </div>
+
+
+      <div class="row post-top col-md-10 col-md-offset-1 panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+          <h4 class="panel-title">
+            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              全部每日复刻一览
+            </a>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel panel-default article">
+              <div class="panel-body">
+                <div id="allDaily" class="post-content"></div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row col-md-10 col-md-offset-1 panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+          <h4 class="panel-title">
+            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+              全部每日复刻一览
+            </a>
+          </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel panel-default article">
+              <div class="panel-body">
+                <div id="allDaily2" class="post-content"></div>
+              </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
 <Script>
 
   $(function(){
@@ -21,17 +87,47 @@
         var dailys = json;
         var html='';
         $.each(dailys, function(i, item){
-          html+='<div>'+item.no+':'+item.dailyJPName+'</div>';
+          html+='<div id=daily'+item.no+'><table class="table .table-bordered"><thead><tr><th>每日详细</th><th>stage</th><th>掉落1</th><th>掉落2</th><th>掉落3</th><th>掉落4</th></tr><thead>';
+          html+='<tbody><tr><td rowspan="'+item.size+'"><img src="image/daily/'+item.no+'.png" border="0" onerror="this.src=\'image/default.png\'">'+item.dailyJPName+'</td>'
           $.each(item.missions,function(j,val){
-            html+='<div>'+val.tiLi+':'+val.missionJPName+'</div>';
-              $.each(val.dropItems,function(k,item){
-                  html+='<div>'+item.name+':'+item.cclass+'</div>';
-              });
+            if(j!=0){
+              html+='<tr>'
+            }
+          html+='<td>'+val.missionJPName+'</td>';
+            var count=0;
+            $.each(val.dropItems,function(k,item){
+                html+='<td>'+item.name+'</td>';
+                count++;
+            });
+            while(count<4){
+                html+='<td>-</td>';
+                count++;
+            }
+            html+='</tr>';
           });
+          html+="</tbody></table></div>"
       　});
        $('#allDaily').html(html);
       });
+
+
+          // $("img").addClass("img-responsive center-block");
+          $(".article").mouseover(function(){
+      			$(this).css({"box-shadow":'5px 5px 20px #6C6969'});
+      		});
+      		$(".article").mouseout(function(){
+      			$(this).css({'box-shadow':"5px 5px 20px #A7A3A3"});
+      		});
+
+
   });
+
+  // $.each(item.missions,function(j,val){
+  //   html+='<div>'+val.tiLi+':'+val.missionJPName+'</div>';
+  //     $.each(val.dropItems,function(k,item){
+  //         html+='<div>'+item.name+':'+item.cclass+'</div>';
+  //     });
+  // });
   function getJpTime(){
     var d = new Date();
     var localTime = d.getTime();//获得当地时间

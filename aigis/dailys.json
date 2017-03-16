@@ -31,7 +31,8 @@
             "cclass": "士兵",
             "judgeTime": 1
         }]
-    }]
+    }],
+    "size": 2
 }, {
     "no": 1,
     "dailyJPName": "魔女の娘",
@@ -58,7 +59,7 @@
     }, {
         "tiLi": 25,
         "meiLi": 2,
-        "missionJPName": "魔女の夜\t",
+        "missionJPName": "魔女の夜",
         "dropItems": [{
             "id": "301",
             "name": "傭兵クレイブ",
@@ -70,5 +71,6 @@
             "cclass": "盾",
             "judgeTime": 1
         }]
-    }]
+    }],
+    "size": 2
 }]
