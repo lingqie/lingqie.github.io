@@ -39,12 +39,12 @@
       <div class="row post-top col-md-10 col-md-offset-1 panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
           <h4 class="panel-title">
-            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseAll" aria-expanded="true" aria-controls="collapseOne">
               全部每日复刻一览<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
             </a>
           </h4>
         </div>
-        <div id="collapseOne" class="display-none panel-collapse" role="tabpanel" aria-labelledby="headingOne">
+        <div id="collapseAll" class="display-none panel-collapse" role="tabpanel" aria-labelledby="headingOne">
           <div class="panel panel-default article">
               <div class="panel-body">
                 <div id="allDaily" class="post-content"></div>
@@ -53,7 +53,8 @@
         </div>
       </div>
 
-      <div class="row col-md-10 col-md-offset-1 panel-default">
+      <div id="nisuoyin">
+      <!-- <div class="row col-md-10 col-md-offset-1 panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
           <h4 class="panel-title">
             <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
@@ -68,7 +69,8 @@
               </div>
           </div>
         </div>
-      </div>
+      </div> -->
+    </div>
   </div>
 <Script>
 
@@ -99,6 +101,39 @@
           html+="</tbody></table></div>"
       　});
        $('#allDaily').html(html);
+      });
+
+
+      $.getJSON('charClass.json',function(json){
+        var charClass = json;
+        var html='';
+        $.each(dailys, function(i, item){
+          html+='<div class="row col-md-10 col-md-offset-1 panel-default">'+
+          '<div class="panel-heading" role="tab" id="headingOne">'+
+              '<h4 class="panel-title">'+
+                '<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse'+item+'" aria-expanded="true" aria-controls="collapseOne">'+
+                  item+'<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>'+
+                '</a>'+
+              '</h4>'+
+            '</div>'+
+            '<div id="collapse'+item+'" class="display-none panel-collapse" role="tabpanel" aria-labelledby="headingOne">'+
+              '<div class="panel panel-default article">'+
+                  '<div class="panel-body">'+
+                    '<div id="'+item+'" class="row post-content"></div>'+
+                  '</div>'+
+              '</div>'+
+            '</div>'+
+          '</div>'
+          // TODO generate the nisuoyin
+            // $.getJSON('sliver.json',function(json){
+            //   var daliys = json;
+            //   var html='';
+            //   $.each(dailys,function(i, item){
+            //
+            //   });
+            // });
+        });
+        $('#nisuoyin').html(html);
       });
 
 
