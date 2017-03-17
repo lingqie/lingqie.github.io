@@ -128,11 +128,11 @@
                                     html2 += '<td>' + mission.missionJPName + '</td>' + '<td>' + mission.meiLi + '</td>' + '<td>' + mission.tiLi + '</td>'
                                     var count = 0;
                                     $.each(mission.dropItems, function(k, drop) {
-                                        if (drop.cclass == item) {
+                                        if (drop.cclass == item && drop.rank=="sliver") {
                                             html2 += '<td style="text-align:center;background-color:#4d90fe"><img class="img-responsive center-block" src="image/'+drop.rank+'/' + drop.id +
                                                 '.png" border="0" onerror="this.src=\'image/default.png\'"><br>' + drop.name + '</td>';
                                         } else {
-                                            html2 += '<td style="text-align:center"><img class="img-responsive center-block" src="image/sliver/' + drop.id +
+                                            html2 += '<td style="text-align:center"><img class="img-responsive center-block" src="image/'+drop.rank+'/' + drop.id +
                                                 '.png" border="0" onerror="this.src=\'image/default.png\'"><br>' + drop.name + '</td>';
                                         }
                                         count++;
