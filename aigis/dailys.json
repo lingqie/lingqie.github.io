@@ -2,75 +2,120 @@
     "no": 0,
     "dailyJPName": "魔女を救え！",
     "missions": [{
-        "tiLi": 20,
-        "meiLi": 2,
-        "missionJPName": "魔女の襲撃",
+        "tiLi": 2,
+        "meiLi": 20,
+        "missionJPName": "魔女の逆襲",
         "dropItems": [{
+            "id": "345",
+            "name": "魔女カリオペ",
+            "cclass": "冰",
+            "judgeTime": 1,
+            "rank": "sliver"
+        }, {
+            "id": "336",
+            "name": "弓兵ダニエラ",
+            "cclass": "弓兵",
+            "judgeTime": 1,
+            "rank": "sliver"
+        }, {
             "id": "301",
             "name": "傭兵クレイブ",
             "cclass": "士兵",
-            "judgeTime": 1
-        }, {
-            "id": "304",
-            "name": "ドワーフ戦士グスタフ",
-            "cclass": "士兵",
-            "judgeTime": 1
-        }, {
-            "id": "303",
-            "name": "妖精郷の戦士ロザリー",
-            "cclass": "士兵",
-            "judgeTime": 1
+            "judgeTime": 1,
+            "rank": "sliver"
         }]
     }, {
-        "tiLi": 25,
-        "meiLi": 2,
-        "missionJPName": "魔女の逆襲\t",
+        "tiLi": 2,
+        "meiLi": 25,
+        "missionJPName": "魔女の逆襲",
         "dropItems": [{
-            "id": "301",
-            "name": "傭兵クレイブ",
-            "cclass": "士兵",
-            "judgeTime": 1
-        }]
-    }],
-    "size": 2
-}, {
-    "no": 1,
-    "dailyJPName": "魔女の娘",
-    "missions": [{
-        "tiLi": 20,
-        "meiLi": 2,
-        "missionJPName": "魔女の復活",
-        "dropItems": [{
-            "id": "301",
-            "name": "傭兵クレイブ",
-            "cclass": "士兵",
-            "judgeTime": 1
+            "id": "345",
+            "name": "魔女カリオペ",
+            "cclass": "冰",
+            "judgeTime": 1,
+            "rank": "sliver"
         }, {
-            "id": "304",
-            "name": "ドワーフ戦士グスタフ",
-            "cclass": "士兵",
-            "judgeTime": 1
+            "id": "339",
+            "name": "魔導師ヴァレリー",
+            "cclass": "火球",
+            "judgeTime": 1,
+            "rank": "sliver"
         }, {
-            "id": "303",
-            "name": "妖精郷の戦士ロザリー",
-            "cclass": "士兵",
-            "judgeTime": 1
+            "id": "458",
+            "name": "白き魔女クロリス",
+            "cclass": "冰",
+            "judgeTime": 1,
+            "rank": "golden"
         }]
     }, {
-        "tiLi": 25,
-        "meiLi": 2,
-        "missionJPName": "魔女の夜",
+        "tiLi": 3,
+        "meiLi": 30,
+        "missionJPName": "魔女の隠れ家",
         "dropItems": [{
-            "id": "301",
-            "name": "傭兵クレイブ",
-            "cclass": "士兵",
-            "judgeTime": 1
+            "id": "345",
+            "name": "魔女カリオペ",
+            "cclass": "冰",
+            "judgeTime": 1,
+            "rank": "sliver"
         }, {
-            "id": "306",
-            "name": "金色の盾ベルナール",
+            "id": "309",
+            "name": "見習い騎兵ミーシャ",
+            "cclass": "骑兵",
+            "judgeTime": 1,
+            "rank": "sliver"
+        }, {
+            "id": "312",
+            "name": "暗殺者セシリー",
+            "cclass": "盗贼",
+            "judgeTime": 1,
+            "rank": "sliver"
+        }]
+    }, {
+        "tiLi": 3,
+        "meiLi": 35,
+        "missionJPName": "魔女の隠れ家",
+        "dropItems": [{
+            "id": "458",
+            "name": "白き魔女クロリス",
+            "cclass": "冰",
+            "judgeTime": 1,
+            "rank": "golden"
+        }, {
+            "id": "307",
+            "name": "鋼鉄の女レアン",
             "cclass": "盾",
-            "judgeTime": 1
+            "judgeTime": 1,
+            "rank": "sliver"
+        }, {
+            "id": "345",
+            "name": "魔女カリオペ",
+            "cclass": "冰",
+            "judgeTime": 1,
+            "rank": "sliver"
+        }]
+    }, {
+        "tiLi": 5,
+        "meiLi": 45,
+        "missionJPName": "魔女の隠れ家",
+        "dropItems": [{
+            "id": "458",
+            "name": "白き魔女クロリス",
+            "cclass": "冰",
+            "judgeTime": 1,
+            "rank": "golden"
+        }, {
+            "id": "342",
+            "name": "癒し手アリサ",
+            "cclass": "奶",
+            "judgeTime": 1,
+            "rank": "sliver"
+        }, {
+            "id": "317",
+            "name": "狂戦士フューネス",
+            "cclass": "山贼",
+            "judgeTime": 1,
+            "rank": "sliver"
         }]
     }],
-    "size": 2
+    "size": 5
 }]

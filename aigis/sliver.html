@@ -1,212 +1,204 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="/css/bootstrap.min.css" />
-  <script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
-  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="/css/blog.css" />
-  <link rel="stylesheet" href="/css/rouge_style.css">
-  <title>每日复刻掉落速查</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/blog.css" />
+    <link rel="stylesheet" href="/css/rouge_style.css">
+    <title>每日复刻掉落速查</title>
 </head>
+
 <body>
-  <div class="container">
-      <div class="row">
-        <div class="navbar navbar-custom navbar-fixed-top">
-              <div class="container">
-                <div class="navbar-header">
-                  <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+    <div class="container">
+        <div class="row">
+            <div class="navbar navbar-custom navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand hidden-sm" href="#">箭亡的工具页面</a>
+                        <a class="navbar-brand hidden-sm" href="#">箭亡的工具页面</a>
+                    </div>
+                    <div class="navbar-collapse collapse" role="navigation">
+                        <ul class="nav navbar-nav navbar-right">
+                        </ul>
+                    </div>
                 </div>
-                <div class="navbar-collapse collapse" role="navigation">
-                  <ul class="nav navbar-nav navbar-right">
-                  </ul>
-                </div>
-              </div>
             </div>
-      </div>
+        </div>
 
 
-      <div class="row post-top panel-default">
-        <div class="panel-heading" role="tab" id="headingOne">
-          <h4 class="panel-title">
+        <div class="row post-top panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
             <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseAll" aria-expanded="true" aria-controls="collapseOne">
               全部每日复刻一览<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
             </a>
           </h4>
+            </div>
+            <div id="collapseAll" class="display-none panel-collapse" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel panel-default article">
+                    <div class="panel-body">
+                        <div id="allDaily" class="data-content"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="collapseAll" class="display-none panel-collapse" role="tabpanel" aria-labelledby="headingOne">
-          <div class="panel panel-default article">
-              <div class="panel-body">
-                <div id="allDaily" class="data-content"></div>
-              </div>
-          </div>
-        </div>
-      </div>
 
-      <div id="nisuoyin">
-      <!-- <div class="row col-md-10 col-md-offset-1 panel-default">
-        <div class="panel-heading" role="tab" id="headingOne">
-          <h4 class="panel-title">
-            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
-              全部每日复刻一览<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-            </a>
-          </h4>
+        <div id="nisuoyin">
         </div>
-        <div id="collapseTwo" class="display-none panel-collapse" role="tabpanel" aria-labelledby="headingOne">
-          <div class="panel panel-default article">
-              <div class="panel-body">
-                <div id="allDaily2" class="row post-content"></div>
-              </div>
-          </div>
-        </div>
-      </div> -->
     </div>
-  </div>
-<Script>
-
-  $(function(){
-      // formatJpTime(getJpTime());
-      $.getJSON('dailys.json',function(json){
-        var dailys = json;
-        var html='';
-        $.each(dailys, function(i, item){
-          html+='<div class="row" id=daily'+item.no+'><table class="table table-bordered"><thead><tr><th>'+item.dailyJPName+'</th><th>stage</th><th>掉落1</th><th>掉落2</th><th>掉落3</th><th>掉落4</th></tr></thead>';
-          html+='<tbody><tr><td rowspan="'+item.size+'"><img class="img-responsive center-block" src="image/daily/'+item.no+'.png" border="0" onerror="this.src=\'image/default.png\'"></td>'
-          $.each(item.missions,function(j,val){
-            if(j!=0){
-              html+='<tr>'
-            }
-          html+='<td>'+val.missionJPName+'</td>';
-            var count=0;
-            $.each(val.dropItems,function(k,item){
-                html+='<td style="text-align:center"><img class="img-responsive center-block" src="image/sliver/'+item.id+'.png" border="0" onerror="this.src=\'image/default.png\'"><br>'+item.name+'</td>';
-                count++;
-            });
-            while(count<4){
-                html+='<td>-</td>';
-                count++;
-            }
-            html+='</tr>';
-          });
-          html+="</tbody></table></div>"
-      　});
-       $('#allDaily').html(html);
-      });
-
-
-      $.getJSON('charClass.json',function(json){
-        var charClass = json;
-        var html='';
-        $.each(charClass, function(i, item){
-          html+='<div class="row panel-default">'+
-          '<div class="panel-heading" role="tab" id="headingOne">'+
-              '<h4 class="panel-title">'+
-                '<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse'+item+'" aria-expanded="true" aria-controls="collapseOne">'+
-                  item+'<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>'+
-                '</a>'+
-              '</h4>'+
-            '</div>'+
-            '<div id="collapse'+item+'" class="display-none panel-collapse" role="tabpanel" aria-labelledby="headingOne">'+
-              '<div class="panel panel-default article">'+
-                  '<div class="panel-body">'+
-                    '<div id="'+item+'" class="row data-content"></div>'+
-                  '</div>'+
-              '</div>'+
-            '</div>'+
-          '</div>'
-          // TODO generate the nisuoyin
-            $.getJSON('dailys.json',function(json){
-              var dailys = json;
-              var html2='<table class="table table-bordered"><thead><tr><th>每日复刻编号</th><th>每日复刻名</th><th>关卡名</th><th>魅力</th><th>体力</th><th>掉落1</th><th>掉落2</th><th>掉落3</th><th>掉落4</th></tr></thead><tbody>';
-              $.each(dailys,function(i,daily){
-                $.each(daily.missions,function(j,mission){
-                  var missionHad=false;
-                  $.each(mission.dropItems,function(k,drop){
-                    if(drop.cclass==item){
-                        missionHad=true;
-                    }
-                  });
-                  if(missionHad){
-                    html2+='<tr><td>'+daily.no+'</td><td><img class="img-responsive center-block" src="image/daily/'+daily.no+'.png" border="0" onerror="this.src=\'image/default.png\'">'+daily.dailyJPName+'</td>';
-                    html2+='<td>'+mission.missionJPName+'</td>'+'<td>'+mission.meiLi+'</td>'+'<td>'+mission.tiLi+'</td>'
-                    var count=0;
-                    $.each(mission.dropItems,function(k,drop){
-                        if(drop.cclass==item){
-                          html2+='<td style="text-align:center;background-color:#4d90fe"><img class="img-responsive center-block" src="image/sliver/'+drop.id+'.png" border="0" onerror="this.src=\'image/default.png\'"><br>'+drop.name+'</td>';
-                        }else{
-                        html2+='<td style="text-align:center"><img class="img-responsive center-block" src="image/sliver/'+drop.id+'.png" border="0" onerror="this.src=\'image/default.png\'"><br>'+drop.name+'</td>';
+    <Script>
+        $(function() {
+            // formatJpTime(getJpTime());
+            $.getJSON('dailys.json', function(json) {
+                var dailys = json;
+                var html = '';
+                $.each(dailys, function(i, item) {
+                    html += '<div class="row" id=daily' + item.no + '><table class="table table-bordered"><thead><tr><th>' + item.dailyJPName +
+                        '</th><th>stage</th><th>魅力</th><th>体力</th><th>掉落1</th><th>掉落2</th><th>掉落3</th><th>掉落4</th></tr></thead>';
+                    html += '<tbody><tr><td rowspan="' + item.size + '"><img class="img-responsive center-block" src="image/daily/' + item.no + '.png" border="0" onerror="this.src=\'image/default.png\'"></td>'
+                    $.each(item.missions, function(j, val) {
+                        if (j != 0) {
+                            html += '<tr>'
                         }
-                        count++;
+                        html += '<td>' + val.missionJPName + '</td>'
+                        + '<td>' + val.meiLi + '</td>' + '<td>' + val.tiLi + '</td>'
+                        var count = 0;
+                        $.each(val.dropItems, function(k, item) {
+                            html += '<td style="text-align:center"><img class="img-responsive center-block" src="image/'+item.rank+'/' + item.id + '.png" border="0" onerror="this.src=\'image/default.png\'"><br>' +
+                                item.name + '</td>';
+                            count++;
+                        });
+                        while (count < 4) {
+                            html += '<td>-</td>';
+                            count++;
+                        }
+                        html += '</tr>';
                     });
-                    while(count<4){
-                        html2+='<td>-</td>';
-                        count++;
-                    }
-                    html2+='</tr>'
-                  }
+                    html += "</tbody></table></div>"　
                 });
-              });
-              html2+='</tbody>'
-              $('#'+item).html(html2);
-              // $.each(dailys,function(i, daily){
-              // });
+                $('#allDaily').html(html);
             });
+
+
+            $.getJSON('charClass.json', function(json) {
+                var charClass = json;
+                var html = '';
+                $.each(charClass, function(i, item) {
+                    html += '<div class="row panel-default">' +
+                        '<div class="panel-heading" role="tab" id="headingOne">' +
+                        '<h4 class="panel-title">' +
+                        '<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse' + item + '" aria-expanded="true" aria-controls="collapseOne">' +
+                        item + '<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>' +
+                        '</a>' +
+                        '</h4>' +
+                        '</div>' +
+                        '<div id="collapse' + item + '" class="display-none panel-collapse" role="tabpanel" aria-labelledby="headingOne">' +
+                        '<div class="panel panel-default article">' +
+                        '<div class="panel-body">' +
+                        '<div id="' + item + '" class="row data-content"></div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>'
+                    // TODO generate the nisuoyin
+                    $.getJSON('dailys.json', function(json) {
+                        var dailys = json;
+                        var html2 = '<table class="table table-bordered"><thead><tr><th>序号</th><th>每日复刻名</th><th>关卡名</th><th>魅力</th><th>体力</th><th>掉落1</th><th>掉落2</th><th>掉落3</th><th>掉落4</th></tr></thead><tbody>';
+                        $.each(dailys, function(i, daily) {
+                            $.each(daily.missions, function(j, mission) {
+                                var missionHad = false;
+                                $.each(mission.dropItems, function(k, drop) {
+                                    if (drop.cclass == item) {
+                                        missionHad = true;
+                                    }
+                                });
+                                if (missionHad) {
+                                    html2 += '<tr><td>' + daily.no + '</td><td><img class="img-responsive center-block" src="image/daily/' + daily.no +
+                                        '.png" border="0" onerror="this.src=\'image/default.png\'">' + daily.dailyJPName + '</td>';
+                                    html2 += '<td>' + mission.missionJPName + '</td>' + '<td>' + mission.meiLi + '</td>' + '<td>' + mission.tiLi + '</td>'
+                                    var count = 0;
+                                    $.each(mission.dropItems, function(k, drop) {
+                                        if (drop.cclass == item) {
+                                            html2 += '<td style="text-align:center;background-color:#4d90fe"><img class="img-responsive center-block" src="image/'+drop.rank+'/' + drop.id +
+                                                '.png" border="0" onerror="this.src=\'image/default.png\'"><br>' + drop.name + '</td>';
+                                        } else {
+                                            html2 += '<td style="text-align:center"><img class="img-responsive center-block" src="image/sliver/' + drop.id +
+                                                '.png" border="0" onerror="this.src=\'image/default.png\'"><br>' + drop.name + '</td>';
+                                        }
+                                        count++;
+                                    });
+                                    while (count < 4) {
+                                        html2 += '<td>-</td>';
+                                        count++;
+                                    }
+                                    html2 += '</tr>'
+                                }
+                            });
+                        });
+                        html2 += '</tbody>'
+                        $('#' + item).html(html2);
+                    });
+                });
+                $('#nisuoyin').html(html);
+            });
+
+            $(".article").mouseover(function() {
+                $(this).css({
+                    "box-shadow": '5px 5px 20px #6C6969'
+                });
+            });
+            $(".article").mouseout(function() {
+                $(this).css({
+                    'box-shadow': "5px 5px 20px #A7A3A3"
+                });
+            });
+
+
         });
-        $('#nisuoyin').html(html);
-      });
 
+        function getJpTime() {
+            var d = new Date();
+            var localTime = d.getTime(); //获得当地时间
+            var localOffset = d.getTimezoneOffset() * 60 * 1000;
+            var utc = localTime + localOffset; //utc time
+            var offset = -9.0; //东九区
+            var result = utc - (3600000 * offset);
+            d = new Date(result);
+            return d;
+        }
 
-          // $("img").addClass("img-responsive center-block");
-          $(".article").mouseover(function(){
-      			$(this).css({"box-shadow":'5px 5px 20px #6C6969'});
-      		});
-      		$(".article").mouseout(function(){
-      			$(this).css({'box-shadow':"5px 5px 20px #A7A3A3"});
-      		});
+        function formatJpTime(d) {
+            document.writeln("日本时间现在为：" + d.Format("yyyy-MM-dd hh:mm:ss.S"));
+        }
+        Date.prototype.Format = function(fmt) {
+            var o = {
+                "M+": this.getMonth() + 1, //月份
+                "d+": this.getDate(), //日
+                "h+": this.getHours(), //小时
+                "m+": this.getMinutes(), //分
+                "s+": this.getSeconds(), //秒
+                "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+                "S": this.getMilliseconds() //毫秒
+            };
 
-
-  });
-
-  function getJpTime(){
-    var d = new Date();
-    var localTime = d.getTime();//获得当地时间
-    var localOffset = d.getTimezoneOffset() * 60 * 1000;
-    var utc = localTime + localOffset;//utc time
-    var offset = - 9.0;//东九区
-    var result = utc - (3600000 * offset);
-    d = new Date(result);
-    return d;
-  }
-  function formatJpTime(d){
-    document.writeln("日本时间现在为："+d.Format("yyyy-MM-dd hh:mm:ss.S"));
-  }
-  Date.prototype.Format = function (fmt) {
-    var o = {
-        "M+": this.getMonth() + 1, //月份
-        "d+": this.getDate(), //日
-        "h+": this.getHours(), //小时
-        "m+": this.getMinutes(), //分
-        "s+": this.getSeconds(), //秒
-        "q+": Math.floor((this.getMonth() + 3) / 3), //季度
-        "S": this.getMilliseconds() //毫秒
-    };
-
-    if (/(y+)/.test(fmt)) fmt
-    = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-    for (var k in o)
-    if (new RegExp("(" + k + ")").test(fmt)) fmt =
-    fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
-    return fmt;
-}
-</script>
+            if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o)
+                if (new RegExp("(" + k + ")").test(fmt)) fmt =
+                    fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            return fmt;
+        }
+    </script>
 
 </body>
+
 </html>
