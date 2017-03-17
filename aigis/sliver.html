@@ -23,12 +23,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand hidden-sm" href="{{site.baseurl}}/index.html">零切骑士团</a>
+                  <a class="navbar-brand hidden-sm" href="#">箭亡的工具页面</a>
                 </div>
                 <div class="navbar-collapse collapse" role="navigation">
                   <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{site.baseurl}}/index.html">首页</a></li>
-                    <li><a href="{{site.baseurl}}/about/">关于</a></li>
                   </ul>
                 </div>
               </div>
@@ -36,7 +34,7 @@
       </div>
 
 
-      <div class="row post-top col-md-10 col-md-offset-1 panel-default">
+      <div class="row post-top panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
           <h4 class="panel-title">
             <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseAll" aria-expanded="true" aria-controls="collapseOne">
@@ -47,7 +45,7 @@
         <div id="collapseAll" class="display-none panel-collapse" role="tabpanel" aria-labelledby="headingOne">
           <div class="panel panel-default article">
               <div class="panel-body">
-                <div id="allDaily" class="post-content"></div>
+                <div id="allDaily" class="data-content"></div>
               </div>
           </div>
         </div>
@@ -80,7 +78,7 @@
         var dailys = json;
         var html='';
         $.each(dailys, function(i, item){
-          html+='<div class="row" id=daily'+item.no+'><table class="table table-bordered"><thead><tr><th>'+item.dailyJPName+'</th><th>stage</th><th>掉落1</th><th>掉落2</th><th>掉落3</th><th>掉落4</th></tr><thead>';
+          html+='<div class="row" id=daily'+item.no+'><table class="table table-bordered"><thead><tr><th>'+item.dailyJPName+'</th><th>stage</th><th>掉落1</th><th>掉落2</th><th>掉落3</th><th>掉落4</th></tr></thead>';
           html+='<tbody><tr><td rowspan="'+item.size+'"><img class="img-responsive center-block" src="image/daily/'+item.no+'.png" border="0" onerror="this.src=\'image/default.png\'"></td>'
           $.each(item.missions,function(j,val){
             if(j!=0){
@@ -108,7 +106,7 @@
         var charClass = json;
         var html='';
         $.each(charClass, function(i, item){
-          html+='<div class="row col-md-10 col-md-offset-1 panel-default">'+
+          html+='<div class="row panel-default">'+
           '<div class="panel-heading" role="tab" id="headingOne">'+
               '<h4 class="panel-title">'+
                 '<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse'+item+'" aria-expanded="true" aria-controls="collapseOne">'+
@@ -119,19 +117,48 @@
             '<div id="collapse'+item+'" class="display-none panel-collapse" role="tabpanel" aria-labelledby="headingOne">'+
               '<div class="panel panel-default article">'+
                   '<div class="panel-body">'+
-                    '<div id="'+item+'" class="row post-content"></div>'+
+                    '<div id="'+item+'" class="row data-content"></div>'+
                   '</div>'+
               '</div>'+
             '</div>'+
           '</div>'
           // TODO generate the nisuoyin
-            // $.getJSON('sliver.json',function(json){
-            //   var daliys = json;
-            //   var html='';
-            //   $.each(dailys,function(i, item){
-            //
-            //   });
-            // });
+            $.getJSON('dailys.json',function(json){
+              var dailys = json;
+              var html2='<table class="table table-bordered"><thead><tr><th>每日复刻编号</th><th>每日复刻名</th><th>关卡名</th><th>魅力</th><th>体力</th><th>掉落1</th><th>掉落2</th><th>掉落3</th><th>掉落4</th></tr></thead><tbody>';
+              $.each(dailys,function(i,daily){
+                $.each(daily.missions,function(j,mission){
+                  var missionHad=false;
+                  $.each(mission.dropItems,function(k,drop){
+                    if(drop.cclass==item){
+                        missionHad=true;
+                    }
+                  });
+                  if(missionHad){
+                    html2+='<tr><td>'+daily.no+'</td><td><img class="img-responsive center-block" src="image/daily/'+daily.no+'.png" border="0" onerror="this.src=\'image/default.png\'">'+daily.dailyJPName+'</td>';
+                    html2+='<td>'+mission.missionJPName+'</td>'+'<td>'+mission.meiLi+'</td>'+'<td>'+mission.tiLi+'</td>'
+                    var count=0;
+                    $.each(mission.dropItems,function(k,drop){
+                        if(drop.cclass==item){
+                          html2+='<td style="text-align:center;background-color:#4d90fe"><img class="img-responsive center-block" src="image/sliver/'+drop.id+'.png" border="0" onerror="this.src=\'image/default.png\'"><br>'+drop.name+'</td>';
+                        }else{
+                        html2+='<td style="text-align:center"><img class="img-responsive center-block" src="image/sliver/'+drop.id+'.png" border="0" onerror="this.src=\'image/default.png\'"><br>'+drop.name+'</td>';
+                        }
+                        count++;
+                    });
+                    while(count<4){
+                        html2+='<td>-</td>';
+                        count++;
+                    }
+                    html2+='</tr>'
+                  }
+                });
+              });
+              html2+='</tbody>'
+              $('#'+item).html(html2);
+              // $.each(dailys,function(i, daily){
+              // });
+            });
         });
         $('#nisuoyin').html(html);
       });

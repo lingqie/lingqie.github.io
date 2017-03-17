@@ -23,6 +23,10 @@ td, th {
     border: 1px solid #c5c5c5;
 }*/
 
+.data-content{
+  margin:1em;
+}
+
 
 .panel-default>.panel-heading {
     background-color: #c9f8ff;
