@@ -35,8 +35,8 @@
             </div>
         </div>
 
-
-        <div class="row post-top panel-default">
+        <div class="row post-top" id="today">Loading</div>
+        <div class="row panel-default">
             <div class="panel-heading" role="tab" id="headingOne">
                 <h4 class="panel-title">
             <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseAll" aria-expanded="true" aria-controls="collapseOne">
@@ -55,10 +55,16 @@
 
         <div id="nisuoyin">
         </div>
+
+        <div>关于本工具用作千年战争，查询银狗粮素材掉落使用，因为现在每日复刻在循环一次之后，
+          最后一次会添加一个新的复刻。所以如果没来得及更新资料的话会有1日的误差，请自己换算一下。可以去贴吧找我要更新，贴吧ID：箭亡</div>
+        <div>最后一次修改于 2017-03-21日</div>
     </div>
     <Script>
         $(function() {
+          getTodayDaily();
             // formatJpTime(getJpTime());
+            // 获得全部每日复刻
             $.getJSON('dailys.json', function(json) {
                 var dailys = json;
                 var html = '';
@@ -89,7 +95,7 @@
                 $('#allDaily').html(html);
             });
 
-
+            // 遍历目录生成逆索引
             $.getJSON('charClass.json', function(json) {
                 var charClass = json;
                 var html = '';
@@ -110,10 +116,9 @@
                         '</div>' +
                         '</div>' +
                         '</div>'
-                    // TODO generate the nisuoyin
                     $.getJSON('dailys.json', function(json) {
                         var dailys = json;
-                        var html2 = '<table class="table table-bordered"><thead><tr><th>序号</th><th>每日复刻名</th><th>关卡名</th><th>魅力</th><th>体力</th><th>掉落1</th><th>掉落2</th><th>掉落3</th><th>掉落4</th></tr></thead><tbody>';
+                        var html2 = '<table class="table table-bordered"><thead><tr><th>序号</th><th>距离天数</th><th>每日复刻名</th><th>关卡名</th><th>魅力</th><th>体力</th><th>掉落1</th><th>掉落2</th><th>掉落3</th><th>掉落4</th></tr></thead><tbody>';
                         $.each(dailys, function(i, daily) {
                             $.each(daily.missions, function(j, mission) {
                                 var missionHad = false;
@@ -123,7 +128,7 @@
                                     }
                                 });
                                 if (missionHad) {
-                                    html2 += '<tr><td>' + daily.no + '</td><td><img class="img-responsive center-block" src="image/daily/' + daily.no +
+                                    html2 += '<tr><td>' + daily.no + '</td><td>'+getDayCountToThisDaily(daily.no)+'</td><td><img class="img-responsive center-block" src="image/daily/' + daily.no +
                                         '.png" border="0" onerror="this.src=\'image/default.png\'">' + daily.dailyJPName + '</td>';
                                     html2 += '<td>' + mission.missionJPName + '</td>' + '<td>' + mission.meiLi + '</td>' + '<td>' + mission.tiLi + '</td>'
                                     var count = 0;
@@ -162,9 +167,79 @@
                     'box-shadow': "5px 5px 20px #A7A3A3"
                 });
             });
-
-
         });
+
+        function getDayCountToThisDaily(thisno){
+          var size=0;
+          var todayNo=0;
+          $.ajaxSetup({async: false});
+          $.getJSON('dailys.json', function(json) {
+                var dailys=json;
+                var size=0;
+                $.each(dailys, function(i, item) {
+                    size++;
+                });
+                // var nowDate=getJpTime();
+                var beginDate=getBeginDate();
+                // var date1=new Date("2017-03-22");
+                var now=getJpTime();
+                var day=((now-beginDate)/86400000)|0;
+                // console.log(day);
+                var no=day%size;
+                // console.log(no);
+                if(no<0){
+                  no=size+no;
+                }
+                var html="";
+                  $.each(dailys, function(i, item) {
+                      if(item.no==no){
+                          todayNO=no
+                          html+='<p>今日复刻序号为'+item.no+'，名字为'+item.dailyJPName+'</p>';
+                      }
+                  });
+                  $("#today").html(html);
+          });
+          var next=thisno-todayNo;
+          if(next<0){
+              next=next+size;
+          }
+          $.ajaxSetup({async: true});
+          return next;
+        }
+
+        function getBeginDate(){
+          return new Date("2017-04-13");
+        }
+
+        function getTodayDaily(){
+          $.getJSON('dailys.json', function(json) {
+                var dailys=json;
+                var size=0;
+                $.each(dailys, function(i, item) {
+                    size++;
+                });
+                // var nowDate=getJpTime();
+                var beginDate=getBeginDate();
+                // var date1=new Date("2017-03-22");
+                var now=getJpTime();
+                var day=((now-beginDate)/86400000)|0;
+                // console.log(day);
+                var no=day%size;
+                // console.log(no);
+                if(no<0){
+                  no=size+no;
+                }
+                var html="";
+                  $.each(dailys, function(i, item) {
+                      if(item.no==no){
+                          todayNO=no
+                          html+='<p>今日复刻序号为'+item.no+'，名字为'+item.dailyJPName+'</p>';
+                      }
+                  });
+                  $("#today").html(html);
+            });
+            // console.log(no);
+        }
 
         function getJpTime() {
             var d = new Date();
