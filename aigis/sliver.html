@@ -56,9 +56,9 @@
         <div id="nisuoyin">
         </div>
 
-        <div>关于本工具用作千年战争，查询银狗粮素材掉落使用，因为现在每日复刻在循环一次之后，
-          最后一次会添加一个新的复刻。所以如果没来得及更新资料的话会有1日的误差，请自己换算一下。可以去贴吧找我要更新，贴吧ID：箭亡</div>
-        <div>最后一次修改于 2017-03-21日</div>
+        <div>关于本速查工具用作千年战争查询银狗粮素材掉落使用，因为现在每日复刻在循环一次之后，
+          最后一次会添加一个新的复刻。所以如果没来得及更新资料的话会有1日的误差，请自己换算一下。可以去贴吧找我更新，贴吧ID：箭亡</div>
+        <div>最后一次修改于 2017-03-22日</div>
     </div>
     <Script>
         $(function() {
@@ -118,12 +118,14 @@
                         '</div>'
                     $.getJSON('dailys.json', function(json) {
                         var dailys = json;
+                        var liwai=new Array("铁圣灵","铜圣灵","魔水晶","银圣灵","金圣灵","白圣灵","黑圣灵","金桶","白桶");
                         var html2 = '<table class="table table-bordered"><thead><tr><th>序号</th><th>距离天数</th><th>每日复刻名</th><th>关卡名</th><th>魅力</th><th>体力</th><th>掉落1</th><th>掉落2</th><th>掉落3</th><th>掉落4</th></tr></thead><tbody>';
                         $.each(dailys, function(i, daily) {
                             $.each(daily.missions, function(j, mission) {
                                 var missionHad = false;
                                 $.each(mission.dropItems, function(k, drop) {
-                                    if (drop.cclass == item) {
+                                    if ((drop.cclass == item && drop.rank=="sliver")||(item==drop.cclass&&liwai.contains(item)))
+                                    {
                                         missionHad = true;
                                     }
                                 });
@@ -133,7 +135,8 @@
                                     html2 += '<td>' + mission.missionJPName + '</td>' + '<td>' + mission.meiLi + '</td>' + '<td>' + mission.tiLi + '</td>'
                                     var count = 0;
                                     $.each(mission.dropItems, function(k, drop) {
-                                        if ((drop.cclass == item && drop.rank=="sliver")) {
+                                        if ((drop.cclass == item && drop.rank=="sliver")||(item==drop.cclass&&liwai.contains(item)))
+                                         {
                                             html2 += '<td style="text-align:center;background-color:#4d90fe"><img class="img-responsive center-block" src="image/'+drop.rank+'/' + drop.id +
                                                 '.png" border="0" onerror="this.src=\'image/default.png\'"><br>' + drop.name + '</td>';
                                         } else {
@@ -169,13 +172,19 @@
             });
         });
 
+        Array.prototype.contains = function ( needle ) {
+          for (i in this) {
+            if (this[i] == needle) return true;
+          }
+          return false;
+        }
+
         function getDayCountToThisDaily(thisno){
-          var size=0;
-          var todayNo=0;
           $.ajaxSetup({async: false});
+          var todayNo=0;
+          var size=0;
           $.getJSON('dailys.json', function(json) {
                 var dailys=json;
-                var size=0;
                 $.each(dailys, function(i, item) {
                     size++;
                 });
@@ -193,22 +202,21 @@
                 var html="";
                   $.each(dailys, function(i, item) {
                       if(item.no==no){
-                          todayNO=no
+                          todayNo=item.no;
                           html+='<p>今日复刻序号为'+item.no+'，名字为'+item.dailyJPName+'</p>';
                       }
                   });
                   $("#today").html(html);
           });
+          // console.log('todayno'+todayNo);
           var next=thisno-todayNo;
+          // console.log('next'+next);
           if(next<0){
               next=next+size;
           }
+          // console.log('nextafter'+next);
           $.ajaxSetup({async: true});
           return next;
-        }
-
-        function getBeginDate(){
-          return new Date("2017-04-13");
         }
 
         function getTodayDaily(){
@@ -272,8 +280,10 @@
                     fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
             return fmt;
         }
+
+        function getBeginDate(){
+          return new Date("2017-04-13");
+        }
     </script>
-
 </body>
-
 </html>
