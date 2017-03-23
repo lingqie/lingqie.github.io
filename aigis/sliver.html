@@ -99,7 +99,9 @@
             $.getJSON('charClass.json', function(json) {
                 var charClass = json;
                 var html = '';
+                var ccliwai=new Array("舞娘","暗黑骑士");
                 $.each(charClass, function(i, item) {
+                    if(!ccliwai.contains(item)){
                     html += '<div class="row panel-default">' +
                         '<div class="panel-heading" role="tab" id="headingOne">' +
                         '<h4 class="panel-title">' +
@@ -116,6 +118,7 @@
                         '</div>' +
                         '</div>' +
                         '</div>'
+                    }
                     $.getJSON('dailys.json', function(json) {
                         var dailys = json;
                         var liwai=new Array("铁圣灵","铜圣灵","魔水晶","银圣灵","金圣灵","白圣灵","黑圣灵","金桶","白桶");
