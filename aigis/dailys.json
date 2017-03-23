@@ -571,7 +571,7 @@
         "meiLi": 25,
         "missionJPName": "鉄球と鎧",
         "dropItems": [{
-            "id": "544",
+            "id": "543",
             "name": "聖戦士マリーベル",
             "cclass": "盾",
             "rank": "white"
@@ -621,7 +621,7 @@
         "meiLi": 35,
         "missionJPName": "鎧の戦列",
         "dropItems": [{
-            "id": "544",
+            "id": "543",
             "name": "聖戦士マリーベル",
             "cclass": "盾",
             "rank": "white"
@@ -646,7 +646,7 @@
         "meiLi": 60,
         "missionJPName": "鎧の戦列２",
         "dropItems": [{
-            "id": "544",
+            "id": "543",
             "name": "聖戦士マリーベル",
             "cclass": "盾",
             "rank": "white"
@@ -910,6 +910,141 @@
         "tiLi": 2,
         "meiLi": 100,
         "missionJPName": "感染　神級",
+        "dropItems": [{
+            "id": "463",
+            "name": "金の聖霊",
+            "cclass": "金圣灵",
+            "rank": "gold"
+        }, {
+            "id": "5161",
+            "name": "白金の聖霊",
+            "cclass": "白圣灵",
+            "rank": "white"
+        }, {
+            "id": "664",
+            "name": "黒の聖霊",
+            "cclass": "黑圣灵",
+            "rank": "black"
+        }]
+    }],
+    "size": 6
+}, {
+    "no": 7,
+    "dailyJPName": "戦乙女の契約",
+    "missions": [{
+        "tiLi": 1,
+        "meiLi": 20,
+        "missionJPName": "戦乙女の挑戦",
+        "dropItems": [{
+            "id": "545",
+            "name": "戦乙女エミリア",
+            "cclass": "骑兵",
+            "rank": "white"
+        }, {
+            "id": "107",
+            "name": "山賊 手下B",
+            "cclass": "山贼",
+            "rank": "iron"
+        }, {
+            "id": "113",
+            "name": "一般兵A【魔法】",
+            "cclass": "火球",
+            "rank": "iron"
+        }]
+    }, {
+        "tiLi": 2,
+        "meiLi": 25,
+        "missionJPName": "騎兵の一矢",
+        "dropItems": [{
+            "id": "309",
+            "name": "見習い騎兵ミーシャ",
+            "cclass": "骑兵",
+            "rank": "sliver"
+        }, {
+            "id": "211",
+            "name": "弓兵アルス",
+            "cclass": "弓兵",
+            "rank": "tong"
+        }, {
+            "id": "001",
+            "name": "魔水晶*1",
+            "cclass": "魔水晶",
+            "rank": "item"
+        }]
+    }, {
+        "tiLi": 3,
+        "meiLi": 30,
+        "missionJPName": "弓騎兵の戦列",
+        "dropItems": [{
+            "id": "354",
+            "name": "砲兵パーシス",
+            "cclass": "炮兵",
+            "rank": "sliver"
+        }, {
+            "id": "349",
+            "name": "海賊ヴェロッテ",
+            "cclass": "海贼",
+            "rank": "sliver"
+        }, {
+            "id": "201",
+            "name": "王国兵士ヘクター（判定2回）",
+            "cclass": "士兵",
+            "rank": "tong"
+        }]
+    }, {
+        "tiLi": 5,
+        "meiLi": 40,
+        "missionJPName": "重装騎兵",
+        "dropItems": [{
+            "id": "545",
+            "name": "戦乙女エミリア",
+            "cclass": "骑兵",
+            "rank": "white"
+        }, {
+            "id": "325",
+            "name": "魔法剣士リカルド",
+            "cclass": "魔剑",
+            "rank": "sliver"
+        }, {
+            "id": "5161",
+            "name": "白金の聖霊",
+            "cclass": "白圣灵",
+            "rank": "white"
+        }, {
+            "id": "001",
+            "name": "魔水晶*1",
+            "cclass": "魔水晶",
+            "rank": "item"
+        }]
+    }, {
+        "tiLi": 7,
+        "meiLi": 55,
+        "missionJPName": "最後の戦い",
+        "dropItems": [{
+            "id": "545",
+            "name": "戦乙女エミリア",
+            "cclass": "骑兵",
+            "rank": "white"
+        }, {
+            "id": "314",
+            "name": "盗賊バラッド",
+            "cclass": "盗贼",
+            "rank": "sliver"
+        }, {
+            "id": "343",
+            "name": "癒し手ドルカ",
+            "cclass": "奶",
+            "rank": "sliver"
+        }, {
+            "id": "001",
+            "name": "魔水晶*1（判定2次）",
+            "cclass": "魔水晶",
+            "rank": "item"
+        }]
+    }, {
+        "tiLi": 2,
+        "meiLi": 100,
+        "missionJPName": "騎兵の侵攻",
         "dropItems": [{
             "id": "463",
             "name": "金の聖霊",
