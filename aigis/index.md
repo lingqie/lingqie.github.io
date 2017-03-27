@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: aigis
 title: 千年战争网页速查
 ---
 
