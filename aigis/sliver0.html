@@ -88,6 +88,8 @@ title: 千年战争网页速查
                         '</div>'
                     }
                     $.getJSON('dailys.json', function(json) {
+
+                        console.log('ding');
                         var dailys = json;
                         var liwai=new Array("铁圣灵","铜圣灵","魔水晶","银圣灵","金圣灵","白圣灵","黑圣灵","金桶","白桶");
                         var html2 = '<table class="table table-bordered"><thead><tr><th>序号</th><th>距离天数</th><th>每日复刻名</th><th>关卡名</th><th>魅力</th><th>体力</th><th>掉落1</th><th>掉落2</th><th>掉落3</th><th>掉落4</th></tr></thead><tbody>';
