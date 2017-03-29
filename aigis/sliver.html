@@ -63,6 +63,9 @@ title: 千年战争网页速查
                     $('#allDaily').html(html);
                 });
 
+
+
+
                 // 遍历目录生成逆索引
                 $.getJSON('charClass.json', function(json) {
                     var charClass = json;
@@ -87,48 +90,85 @@ title: 千年战争网页速查
                             '</div>' +
                             '</div>'
                         }
-                        $.getJSON('dailys.json', function(json) {
-                            var dailys = json;
-                            var liwai=new Array("铁圣灵","铜圣灵","魔水晶","银圣灵","金圣灵","白圣灵","黑圣灵","金桶","白桶");
-                            var html2 = '<table class="table table-bordered"><thead><tr><th>序号</th><th>距离天数</th><th>每日复刻名</th><th>关卡名</th><th>魅力</th><th>体力</th><th>掉落1</th><th>掉落2</th><th>掉落3</th><th>掉落4</th></tr></thead><tbody>';
-                            $.each(dailys, function(i, daily) {
-                                $.each(daily.missions, function(j, mission) {
-                                    var missionHad = false;
-                                    $.each(mission.dropItems, function(k, drop) {
-                                        if ((drop.cclass == item && drop.rank=="sliver")||(item==drop.cclass&&liwai.contains(item)))
-                                        {
-                                            missionHad = true;
-                                        }
-                                    });
-                                    if (missionHad) {
-                                        html2 += '<tr><td>' + daily.no + '</td><td>'+getDayCountToThisDaily(daily.no)+'</td><td><img class="img-responsive center-block" src="image/daily/' + daily.no +
-                                            '.png" border="0" onerror="this.src=\'image/default.png\'">' + daily.dailyJPName + '</td>';
-                                        html2 += '<td>' + mission.missionJPName + '</td>' + '<td>' + mission.meiLi + '</td>' + '<td>' + mission.tiLi + '</td>'
-                                        var count = 0;
-                                        $.each(mission.dropItems, function(k, drop) {
-                                            if ((drop.cclass == item && drop.rank=="sliver")||(item==drop.cclass&&liwai.contains(item)))
-                                             {
-                                                html2 += '<td style="text-align:center;background-color:#4d90fe"><img class="img-responsive center-block" src="image/'+drop.rank+'/' + drop.id +
-                                                    '.png" border="0" onerror="this.src=\'image/default.png\'"><br>' + drop.name + '</td>';
-                                            } else {
-                                                html2 += '<td style="text-align:center"><img class="img-responsive center-block" src="image/'+drop.rank+'/' + drop.id +
-                                                    '.png" border="0" onerror="this.src=\'image/default.png\'"><br>' + drop.name + '</td>';
-                                            }
-                                            count++;
-                                        });
-                                        while (count < 4) {
-                                            html2 += '<td>-</td>';
-                                            count++;
-                                        }
-                                        html2 += '</tr>'
-                                    }
-                                });
-                            });
-                            html2 += '</tbody>'
-                            $('#' + item).html(html2);
-                        });
+                        // $.getJSON('dailys.json', function(json) {
+                //             var dailys = json;
+                //             var liwai=new Array("铁圣灵","铜圣灵","魔水晶","银圣灵","金圣灵","白圣灵","黑圣灵","金桶","白桶");
+                //             var html2 = '<table class="table table-bordered"><thead><tr><th>序号</th><th>距离天数</th><th>每日复刻名</th><th>关卡名</th><th>魅力</th><th>体力</th><th>掉落1</th><th>掉落2</th><th>掉落3</th><th>掉落4</th></tr></thead><tbody>';
+                //             $.each(dailys, function(i, daily) {
+                //                 $.each(daily.missions, function(j, mission) {
+                //                     var missionHad = false;
+                //                     $.each(mission.dropItems, function(k, drop) {
+                //                         if ((drop.cclass == item && drop.rank=="sliver")||(item==drop.cclass&&liwai.contains(item)))
+                //                         {
+                //                             missionHad = true;
+                //                         }
+                //                     });
+                //                     if (missionHad) {
+                //                         html2 += '<tr><td>' + daily.no + '</td><td>'+getDayCountToThisDaily(daily.no)+'</td><td><img class="img-responsive center-block" src="image/daily/' + daily.no +
+                //                             '.png" border="0" onerror="this.src=\'image/default.png\'">' + daily.dailyJPName + '</td>';
+                //                         html2 += '<td>' + mission.missionJPName + '</td>' + '<td>' + mission.meiLi + '</td>' + '<td>' + mission.tiLi + '</td>'
+                //                         var count = 0;
+                //                         $.each(mission.dropItems, function(k, drop) {
+                //                             if ((drop.cclass == item && drop.rank=="sliver")||(item==drop.cclass&&liwai.contains(item)))
+                //                              {
+                //                                 html2 += '<td style="text-align:center;background-color:#4d90fe"><img class="img-responsive center-block" src="image/'+drop.rank+'/' + drop.id +
+                //                                     '.png" border="0" onerror="this.src=\'image/default.png\'"><br>' + drop.name + '</td>';
+                //                             } else {
+                //                                 html2 += '<td style="text-align:center"><img class="img-responsive center-block" src="image/'+drop.rank+'/' + drop.id +
+                //                                     '.png" border="0" onerror="this.src=\'image/default.png\'"><br>' + drop.name + '</td>';
+                //                             }
+                //                             count++;
+                //                         });
+                //                         while (count < 4) {
+                //                             html2 += '<td>-</td>';
+                //                             count++;
+                //                         }
+                //                         html2 += '</tr>'
+                //                     }
+                //                 });
+                //             });
+                //             html2 += '</tbody>'
+                //             $('#' + item).html(html2);
+                //         });
                     });
                     $('#nisuoyin').html(html);
+                });
+
+                $.getJSON('charMission.json',function(json){
+                    var data=json;
+                    var size=get_size_and_today_no()[0];
+                    var todayNo=get_size_and_today_no()[1];
+                    // console.log(size);
+                    // console.log(todayNo);
+                    $.each(data,function(i,item){
+                      var liwai=new Array("铁圣灵","铜圣灵","魔水晶","银圣灵","金圣灵","白圣灵","黑圣灵","金桶","白桶","虹圣灵");
+                      html2 = '<table class="table table-bordered"><thead><tr><th>序号</th><th>距离天数</th><th>每日复刻名</th><th>关卡名</th><th>魅力</th><th>体力</th><th>掉落1</th><th>掉落2</th><th>掉落3</th><th>掉落4</th></tr></thead><tbody>';
+                        $.each(item.missions, function(j, mission) {
+
+                        html2 += '<tr><td>' + mission.dailyNo + '</td><td>'+getDayCountToThisDaily(mission.dailyNo,size,todayNo)+'</td><td><img class="img-responsive center-block" src="image/daily/' + mission.dailyNo +
+                                                    '.png" border="0" onerror="this.src=\'image/default.png\'">' + mission.dailyJPName + '</td>';
+                                                html2 += '<td>' + mission.missionJPName + '</td>' + '<td>' + mission.meiLi + '</td>' + '<td>' + mission.tiLi + '</td>';
+                                                var count = 0;
+                                                $.each(mission.dropItems, function(k, drop) {
+                                                    if ((drop.cclass == item.charName && drop.rank=="sliver")||(item.charName==drop.cclass&&liwai.contains(item.charName)))
+                                                     {
+                                                        html2 += '<td style="text-align:center;background-color:#4d90fe"><img class="img-responsive center-block" src="image/'+drop.rank+'/' + drop.id +
+                                                            '.png" border="0" onerror="this.src=\'image/default.png\'"><br>' + drop.name + '</td>';
+                                                    } else {
+                                                        html2 += '<td style="text-align:center"><img class="img-responsive center-block" src="image/'+drop.rank+'/' + drop.id +
+                                                            '.png" border="0" onerror="this.src=\'image/default.png\'"><br>' + drop.name + '</td>';
+                                                    }
+                                                    count++;
+                                                });
+                                                while (count < 4) {
+                                                    html2 += '<td>-</td>';
+                                                    count++;
+                                                }
+                                                html2 += '</tr>';
+                      });
+                        html2 += '</tbody>'
+                        $('#' +item.charName).html(html2);
+                    });
                 });
 
                 $(".article").mouseover(function() {
@@ -150,44 +190,43 @@ title: 千年战争网页速查
               return false;
             }
 
-            function getDayCountToThisDaily(thisno){
-              $.ajaxSetup({async: false});
-              var todayNo=0;
-              var size=0;
-              $.getJSON('dailys.json', function(json) {
-                    var dailys=json;
-                    $.each(dailys, function(i, item) {
-                        size++;
-                    });
-                    // var nowDate=getJpTime();
-                    var beginDate=getBeginDate();
-                    // var date1=new Date("2017-03-22");
-                    var now=getJpTime();
-                    var day=((now-beginDate)/86400000)|0;
-                    // console.log(day);
-                    var no=day%size;
-                    // console.log(no);
-                    if(no<0){
-                      no=size+no;
-                    }
-                    var html="";
-                      $.each(dailys, function(i, item) {
-                          if(item.no==no){
-                              todayNo=item.no;
-                              html+='<p>今日复刻序号为'+item.no+'，名字为'+item.dailyJPName+'</p>';
-                          }
-                      });
-                      $("#today").html(html);
-              });
-              // console.log('todayno'+todayNo);
+            function getDayCountToThisDaily(thisno,size,todayNo){
               var next=thisno-todayNo;
               // console.log('next'+next);
               if(next<0){
-                  next=next+size;
+                  next=next+size+1;
               }
               // console.log('nextafter'+next);
-              $.ajaxSetup({async: true});
               return next;
+            }
+
+            function get_size_and_today_no(){
+                $.ajaxSetup({async: false});
+                var size=0;
+                var todayNo=0;
+                $.getJSON('dailys.json', function(json) {
+                      var dailys=json;
+                      $.each(dailys, function(i, item) {
+                          size++;
+                      });
+                      // var nowDate=getJpTime();
+                      var beginDate=getBeginDate();
+                      // var date1=new Date("2017-03-22");
+                      var now=getJpTime();
+                      var day=((now-beginDate)/86400000)|0;
+                      // console.log(day);
+                      var no=day%size;
+                      // console.log(no);
+                      if(no<0){
+                        no=size+no;
+                      }
+                      todayNo=no;
+                      // var nowDate=getJpTime();
+                });
+                // console.log('todayno'+todayNo);
+                // console.log('nextafter'+next);
+                $.ajaxSetup({async: true});
+                return [size,todayNo];
             }
 
             function getTodayDaily(){
