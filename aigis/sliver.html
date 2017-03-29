@@ -65,7 +65,7 @@ title: 千年战争网页速查
                 $.getJSON('charClass.json', function(json) {
                     var charClass = json;
                     var html = '';
-                    var ccliwai=new Array("舞娘","暗黑骑士","龙骑","好感物");
+                    var ccliwai=new Array("舞娘","暗黑骑士","龙骑","好感物","巫女","水兵","天马","咒术","前军","后军","游侠");
                     $.each(charClass, function(i, item) {
                         if(!ccliwai.contains(item)){
                         html += '<div class="row panel-default">' +
