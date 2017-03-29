@@ -2,8 +2,6 @@
 layout: aigis
 title: 千年战争网页速查
 ---
-
-
         <div class="row post-top" id="today">Loading</div>
         <div class="row panel-default">
             <div class="panel-heading" role="tab" id="headingOne">
@@ -27,7 +25,7 @@ title: 千年战争网页速查
 
         <div>关于本速查工具用作千年战争查询银狗粮素材掉落使用，因为现在每日复刻在循环一次之后，
           最后一次会添加一个新的复刻。所以如果没来得及更新资料的话会有1日的误差，请自己换算一下。可以去贴吧找我更新，贴吧ID：箭亡</div>
-        <div>最后一次修改于 2017-03-24日</div>
+        <div>最后一次修改于 2017-03-29日</div>
         <Script>
             $(function() {
               getTodayDaily();
@@ -63,14 +61,11 @@ title: 千年战争网页速查
                     $('#allDaily').html(html);
                 });
 
-
-
-
                 // 遍历目录生成逆索引
                 $.getJSON('charClass.json', function(json) {
                     var charClass = json;
                     var html = '';
-                    var ccliwai=new Array("舞娘","暗黑骑士","龙骑");
+                    var ccliwai=new Array("舞娘","暗黑骑士","龙骑","好感物");
                     $.each(charClass, function(i, item) {
                         if(!ccliwai.contains(item)){
                         html += '<div class="row panel-default">' +
@@ -90,46 +85,6 @@ title: 千年战争网页速查
                             '</div>' +
                             '</div>'
                         }
-                        // $.getJSON('dailys.json', function(json) {
-                //             var dailys = json;
-                //             var liwai=new Array("铁圣灵","铜圣灵","魔水晶","银圣灵","金圣灵","白圣灵","黑圣灵","金桶","白桶");
-                //             var html2 = '<table class="table table-bordered"><thead><tr><th>序号</th><th>距离天数</th><th>每日复刻名</th><th>关卡名</th><th>魅力</th><th>体力</th><th>掉落1</th><th>掉落2</th><th>掉落3</th><th>掉落4</th></tr></thead><tbody>';
-                //             $.each(dailys, function(i, daily) {
-                //                 $.each(daily.missions, function(j, mission) {
-                //                     var missionHad = false;
-                //                     $.each(mission.dropItems, function(k, drop) {
-                //                         if ((drop.cclass == item && drop.rank=="sliver")||(item==drop.cclass&&liwai.contains(item)))
-                //                         {
-                //                             missionHad = true;
-                //                         }
-                //                     });
-                //                     if (missionHad) {
-                //                         html2 += '<tr><td>' + daily.no + '</td><td>'+getDayCountToThisDaily(daily.no)+'</td><td><img class="img-responsive center-block" src="image/daily/' + daily.no +
-                //                             '.png" border="0" onerror="this.src=\'image/default.png\'">' + daily.dailyJPName + '</td>';
-                //                         html2 += '<td>' + mission.missionJPName + '</td>' + '<td>' + mission.meiLi + '</td>' + '<td>' + mission.tiLi + '</td>'
-                //                         var count = 0;
-                //                         $.each(mission.dropItems, function(k, drop) {
-                //                             if ((drop.cclass == item && drop.rank=="sliver")||(item==drop.cclass&&liwai.contains(item)))
-                //                              {
-                //                                 html2 += '<td style="text-align:center;background-color:#4d90fe"><img class="img-responsive center-block" src="image/'+drop.rank+'/' + drop.id +
-                //                                     '.png" border="0" onerror="this.src=\'image/default.png\'"><br>' + drop.name + '</td>';
-                //                             } else {
-                //                                 html2 += '<td style="text-align:center"><img class="img-responsive center-block" src="image/'+drop.rank+'/' + drop.id +
-                //                                     '.png" border="0" onerror="this.src=\'image/default.png\'"><br>' + drop.name + '</td>';
-                //                             }
-                //                             count++;
-                //                         });
-                //                         while (count < 4) {
-                //                             html2 += '<td>-</td>';
-                //                             count++;
-                //                         }
-                //                         html2 += '</tr>'
-                //                     }
-                //                 });
-                //             });
-                //             html2 += '</tbody>'
-                //             $('#' + item).html(html2);
-                //         });
                     });
                     $('#nisuoyin').html(html);
                 });
@@ -209,7 +164,6 @@ title: 千年战争网页速查
                       $.each(dailys, function(i, item) {
                           size++;
                       });
-                      // var nowDate=getJpTime();
                       var beginDate=getBeginDate();
                       // var date1=new Date("2017-03-22");
                       var now=getJpTime();
@@ -221,7 +175,6 @@ title: 千年战争网页速查
                         no=size+no;
                       }
                       todayNo=no;
-                      // var nowDate=getJpTime();
                 });
                 // console.log('todayno'+todayNo);
                 // console.log('nextafter'+next);
