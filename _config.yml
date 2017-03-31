@@ -10,6 +10,7 @@ paginate: 5		  # Posts per page on the blog index
 paginate_path: "blog/page/:num"
 
 baseurl: "" # the subpath of your site, e.g. /blog
+aigisurl: "/aigis"
 url: "https://lingqie.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
