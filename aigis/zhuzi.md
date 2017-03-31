@@ -1,5 +1,5 @@
 ---
-layout: aigispost
+layout: post
 title: 千年战争觉醒珠子
 ---
 
