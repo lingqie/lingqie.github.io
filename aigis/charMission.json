@@ -256,33 +256,6 @@
         "dailyNo": 15,
         "dailyJPName": "モンクの修行場"
     }, {
-        "tiLi": 5,
-        "meiLi": 35,
-        "missionJPName": "師範代",
-        "dropItems": [{
-            "id": "563",
-            "name": "武闘家リン",
-            "cclass": "拳师",
-            "rank": "white"
-        }, {
-            "id": "303",
-            "name": "妖精郷の戦士ロザリー",
-            "cclass": "士兵",
-            "rank": "sliver"
-        }, {
-            "id": "301",
-            "name": "傭兵クレイブ",
-            "cclass": "士兵",
-            "rank": "sliver"
-        }, {
-            "id": "005",
-            "name": "水晶",
-            "cclass": "好感物",
-            "rank": "item"
-        }],
-        "dailyNo": 15,
-        "dailyJPName": "モンクの修行場"
-    }, {
         "tiLi": 7,
         "meiLi": 60,
         "missionJPName": "奥義覚醒",
@@ -5065,28 +5038,6 @@
         "dailyNo": 0,
         "dailyJPName": "魔女を救え！"
     }, {
-        "tiLi": 2,
-        "meiLi": 25,
-        "missionJPName": "魔女の逆襲",
-        "dropItems": [{
-            "id": "345",
-            "name": "魔女カリオペ",
-            "cclass": "冰",
-            "rank": "sliver"
-        }, {
-            "id": "339",
-            "name": "魔導師ヴァレリー",
-            "cclass": "火球",
-            "rank": "sliver"
-        }, {
-            "id": "458",
-            "name": "白き魔女クロリス",
-            "cclass": "冰",
-            "rank": "gold"
-        }],
-        "dailyNo": 0,
-        "dailyJPName": "魔女を救え！"
-    }, {
         "tiLi": 3,
         "meiLi": 30,
         "missionJPName": "魔女の隠れ家",
@@ -6278,50 +6229,6 @@
         "dailyNo": 2,
         "dailyJPName": "闇の忍者軍団"
     }, {
-        "tiLi": 2,
-        "meiLi": 100,
-        "missionJPName": "触手の舞　神級",
-        "dropItems": [{
-            "id": "001",
-            "name": "魔水晶*1",
-            "cclass": "魔水晶",
-            "rank": "item"
-        }, {
-            "id": "002",
-            "name": "魔水晶*2",
-            "cclass": "魔水晶",
-            "rank": "item"
-        }, {
-            "id": "003",
-            "name": "魔水晶*3",
-            "cclass": "魔水晶",
-            "rank": "item"
-        }],
-        "dailyNo": 2,
-        "dailyJPName": "闇の忍者軍団"
-    }, {
-        "tiLi": 2,
-        "meiLi": 100,
-        "missionJPName": "触手の舞　神級",
-        "dropItems": [{
-            "id": "001",
-            "name": "魔水晶*1",
-            "cclass": "魔水晶",
-            "rank": "item"
-        }, {
-            "id": "002",
-            "name": "魔水晶*2",
-            "cclass": "魔水晶",
-            "rank": "item"
-        }, {
-            "id": "003",
-            "name": "魔水晶*3",
-            "cclass": "魔水晶",
-            "rank": "item"
-        }],
-        "dailyNo": 2,
-        "dailyJPName": "闇の忍者軍団"
-    }, {
         "tiLi": 5,
         "meiLi": 50,
         "missionJPName": "混沌の戦線",
@@ -6500,33 +6407,6 @@
         }, {
             "id": "001",
             "name": "魔水晶*1",
-            "cclass": "魔水晶",
-            "rank": "item"
-        }],
-        "dailyNo": 10,
-        "dailyJPName": "魔術の秘法"
-    }, {
-        "tiLi": 2,
-        "meiLi": 30,
-        "missionJPName": "魔物退治 中級",
-        "dropItems": [{
-            "id": "339",
-            "name": "魔導師ヴァレリー",
-            "cclass": "火球",
-            "rank": "sliver"
-        }, {
-            "id": "206",
-            "name": "王国重歩兵ラセル",
-            "cclass": "盾",
-            "rank": "tong"
-        }, {
-            "id": "002",
-            "name": "魔水晶*2",
-            "cclass": "魔水晶",
-            "rank": "item"
-        }, {
-            "id": "001",
-            "name": "魔水晶*1（判定2次）",
             "cclass": "魔水晶",
             "rank": "item"
         }],
@@ -7217,50 +7097,6 @@
         "dailyNo": 25,
         "dailyJPName": "堕天使の封印"
     }, {
-        "tiLi": 2,
-        "meiLi": 100,
-        "missionJPName": "四面楚歌",
-        "dropItems": [{
-            "id": "001",
-            "name": "魔水晶*1",
-            "cclass": "魔水晶",
-            "rank": "item"
-        }, {
-            "id": "002",
-            "name": "魔水晶*2",
-            "cclass": "魔水晶",
-            "rank": "item"
-        }, {
-            "id": "003",
-            "name": "魔水晶*3",
-            "cclass": "魔水晶",
-            "rank": "item"
-        }],
-        "dailyNo": 25,
-        "dailyJPName": "堕天使の封印"
-    }, {
-        "tiLi": 2,
-        "meiLi": 100,
-        "missionJPName": "四面楚歌",
-        "dropItems": [{
-            "id": "001",
-            "name": "魔水晶*1",
-            "cclass": "魔水晶",
-            "rank": "item"
-        }, {
-            "id": "002",
-            "name": "魔水晶*2",
-            "cclass": "魔水晶",
-            "rank": "item"
-        }, {
-            "id": "003",
-            "name": "魔水晶*3",
-            "cclass": "魔水晶",
-            "rank": "item"
-        }],
-        "dailyNo": 25,
-        "dailyJPName": "堕天使の封印"
-    }, {
         "tiLi": 3,
         "meiLi": 30,
         "missionJPName": "二つの戦線",
@@ -7305,33 +7141,6 @@
             "id": "004",
             "name": "花束",
             "cclass": "好感物",
-            "rank": "item"
-        }],
-        "dailyNo": 27,
-        "dailyJPName": "古代の機甲兵"
-    }, {
-        "tiLi": 3,
-        "meiLi": 40,
-        "missionJPName": "三つ巴の戦い",
-        "dropItems": [{
-            "id": "570",
-            "name": "機甲士リッカ",
-            "cclass": "水兵",
-            "rank": "white"
-        }, {
-            "id": "335",
-            "name": "弓兵ソーマ",
-            "cclass": "弓兵",
-            "rank": "sliver"
-        }, {
-            "id": "001",
-            "name": "魔水晶*1（判定2次）",
-            "cclass": "魔水晶",
-            "rank": "item"
-        }, {
-            "id": "002",
-            "name": "魔水晶*2",
-            "cclass": "魔水晶",
             "rank": "item"
         }],
         "dailyNo": 27,
