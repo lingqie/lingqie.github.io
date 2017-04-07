@@ -210,7 +210,11 @@ title: 千年战争网页速查
                               '<p>今日复刻序号为'+item.no+'，名字为'+item.dailyJPName+'</p>';
                           }
                       });
-                      $("#today").html(html);
+
+
+                      $("#today").html("日本时间现在为：" +getJpTime().Format("yyyy-MM-dd hh:mm:ss"));
+                      $("#today").append(html);
+
                 });
                 // console.log(no);
             }
@@ -229,6 +233,7 @@ title: 千年战争网页速查
             function formatJpTime(d) {
                 document.writeln("日本时间现在为：" + d.Format("yyyy-MM-dd hh:mm:ss.S"));
             }
+
             Date.prototype.Format = function(fmt) {
                 var o = {
                     "M+": this.getMonth() + 1, //月份
